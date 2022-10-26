@@ -1,0 +1,30 @@
+:root {
+  --primary-color: #add8e6;
+  --secondary-color: #ffdcd1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.page-main {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.page-pokemon {
+  border: 5px solid var(--secondary-color);
+  border-radius: 5px;
+  padding: 15px;
+  margin: 50px;
+}
