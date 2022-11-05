@@ -1,18 +1,33 @@
-// array of objects that contains pokemons and their caracteretics
-const pokemonlist = [{name: 'Ivysaur', height: 1, types: ['grass', 'poison']},
-{name: 'Venusaur', height: 2.0, types: ['grass', 'poison']},
-{name: 'Charizard', height: 1.7, types: ['fire', 'flying']}];
+// Wrap the variable in a IIFE to prevent conflicts 
+let pokemonrepository = (function () {
+  // array of objects that contains pokemons and their caracteretics
+  let pokemonlist = [{name: 'Ivysaur', height: 1, types: ['grass', 'poison']},
+  {name: 'Venusaur', height: 2.0, types: ['grass', 'poison']},
+  {name: 'Charizard', height: 1.7, types: ['fire', 'flying']}];
 
-// variable for the lenght of the array to be used in the for loop
-let len = pokemonlist.length
+  function add(pokemon) {
+    if (typeof pokemon === "object")
+    pokemonlist.push(pokemon);
+  }
+
+  function getAll() {
+    return pokemonlist;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+})();
 
 // for loop to write the pokemons and height in the DOM
-for(let i=0; i < len; i++) {
-  document.write('<p>The pokemon ' + pokemonlist[i].name + ' has a height of '
-  + pokemonlist[i].height + ' m.</p>');
+function loopwrite(pokemon) {
+  document.write('<p>The pokemon ' + pokemon.name + ' has a height of '
+  + pokemon.height + ' m.</p>');
 
   // conditional for bigger pokemons
-  if(pokemonlist[i].height >= 2) {
-    document.write('<p>The ' + pokemonlist[i].name + ' pokemon is big.' + '</p>');
+  if(pokemon.height >= 2) {
+    document.write('<p>The ' + pokemon.name + ' pokemon is big.' + '</p>');
   }
 }
+pokemonrepository.getAll().forEach(loopwrite);
