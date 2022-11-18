@@ -74,9 +74,7 @@ let pokemonrepository = (function () {
         }
       });
     
-      document.querySelector('.page-pokemon-button').addEventListener('click', () => {
-        showModal(pokemon.name, 'Height: ' + pokemon.height, pokemon.imageUrl);
-      });
+      showModal(pokemon.name, 'Height: ' + pokemon.height, pokemon.imageUrl);
       
     });
   }
