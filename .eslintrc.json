@@ -1,4 +1,5 @@
-{
+ {
+    "root": true,  
     "env": {
         "browser": true,
         "commonjs": true,
@@ -12,6 +13,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "quotes": ["error", "single"]
     }
 }
 
